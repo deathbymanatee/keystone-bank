@@ -10,4 +10,7 @@ so you will probably need an SSH key to authenticate yourself.
 administrative privileges to modify this directory. 
 4. To test if everything installed correctly, start the xampp web server and type in `localhost/keystone-bank/HelloWorld.php` your browser and hit enter. You should see the contents of that file printed out on your screen
 
-I will ask about how the file structure should look and make the appropriate changes. For now, don't many any crazy changes just yet (main is protected anyway)
+Here's the Google Drive folder with associated project documents: <https://drive.google.com/drive/folders/1xVr1QDkeqZqUSmWPWx2Dv1biAwcEAJ69> 
+
+I will ask about how the file structure should look and make the appropriate changes. For now, don't make any crazy changes just yet (main is protected anyway)
+
