@@ -14,3 +14,13 @@ Here's the Google Drive folder with associated project documents: <https://drive
 
 I will ask about how the file structure should look and make the appropriate changes. For now, don't make any crazy changes just yet (main is protected anyway)
 
+## Database Setup
+
+1. Copy setup.sql into the directory where your mySQL binary lives. Open the XAMPP shell. 
+2. Run the following command in your shell: 
+
+```sql
+source setup.sql
+```
+
+3. This script should set up the database with everything you need to start developing stuff and testing. 
