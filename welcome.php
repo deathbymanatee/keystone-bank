@@ -14,8 +14,10 @@
 
     // Include database connection
     require_once('db_connection.php');
-	require_once('logout_button.php');
-	?>
+
+    // Include navigation bar
+    require_once('navbar.php');
+    ?>
 
 <body>
 	<h1>Welcome</h1>

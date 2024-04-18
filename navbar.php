@@ -18,3 +18,6 @@ if(isset($_POST['logout'])) {
 <form action="" method="post">
     <button type="submit" name="logout">Logout</button>
 </form>
+<form action="view_profile.php" method="get">
+    <button type="submit">View Profile</button>
+</form>
