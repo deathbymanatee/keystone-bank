@@ -15,16 +15,20 @@ require_once('navbar.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Process form data when form is submitted
-    $amount = $_POST['amount'];
+    $amount = filter_input(INPUT_POST, 'amount', FILTER_VALIDATE_INT);
     $user_id = $_SESSION['user_id'];
 
-    // Check if sufficient balance is available
-    $query = "SELECT checking_balance FROM CheckingSavingsAccount WHERE user_ID = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("s", $user_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $row = $result->fetch_assoc();
+
+    if ($amount === false || $amount === null) {
+        $error_message = "Amount must be an integer.";
+    } else {
+	    $query = "SELECT checking_balance FROM CheckingSavingsAccount WHERE user_ID = ?";
+	    $stmt = $conn->prepare($query);
+	    $stmt->bind_param("s", $user_id);
+	    $stmt->execute();
+	    $result = $stmt->get_result();
+	    $row = $result->fetch_assoc();
+	}
 
     if ($row['checking_balance'] >= $amount) {
         // Update checking balance

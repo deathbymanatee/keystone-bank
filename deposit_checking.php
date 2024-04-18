@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 
@@ -16,14 +15,20 @@ require_once('navbar.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Process form data when form is submitted
-    $amount = $_POST['amount'];
+    $amount = filter_input(INPUT_POST, 'amount', FILTER_VALIDATE_INT);
     $user_id = $_SESSION['user_id'];
 
+
+    // Check if amount is a valid integer
+    if ($amount === false || $amount === null) {
+        $error_message = "Amount must be an integer.";
+	} else {
+	    $query = "UPDATE CheckingSavingsAccount SET checking_balance = checking_balance + ? WHERE user_ID = ?";
+	    $stmt = $conn->prepare($query);
+	    $stmt->bind_param("ds", $amount, $user_id);
+	    $stmt->execute();
+	}
     // Update checking balance
-    $query = "UPDATE CheckingSavingsAccount SET checking_balance = checking_balance + ? WHERE user_ID = ?";
-    $stmt = $conn->prepare($query);
-    $stmt->bind_param("ds", $amount, $user_id);
-    $stmt->execute();
 
     // Redirect to welcome page
     header("Location: welcome.php");
