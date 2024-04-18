@@ -1,4 +1,7 @@
 <?php
+
+require_once('db_connection.php');
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = htmlspecialchars($_POST['email']);
     $firstName = htmlspecialchars($_POST['first_name']);
