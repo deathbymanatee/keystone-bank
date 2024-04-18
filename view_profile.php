@@ -1,11 +1,7 @@
 <?php
 session_start();
 
-// Check if user is logged in
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
+require_once('auth_check.php');
 
 // Include database connection
 require_once('db_connection.php');
@@ -22,14 +18,6 @@ $stmt->execute();
 $result = $stmt->get_result();
 $user_info = $result->fetch_assoc();
 
-// Check if user is admin
-$is_admin = $user_info['is_admin'];
-
-// If user is not admin and trying to view someone else's profile, redirect to welcome.php
-if (!$is_admin && $user_id != $_GET['user_id']) {
-    header("Location: welcome.php");
-    exit();
-}
 ?>
 
 <!DOCTYPE html>
@@ -45,9 +33,7 @@ if (!$is_admin && $user_id != $_GET['user_id']) {
     <p><strong>Last Name:</strong> <?php echo $user_info['last_name']; ?></p>
     <p><strong>SSN:</strong> <?php echo $user_info['SSN']; ?></p>
     
-    <?php if ($is_admin || $user_id == $_GET['user_id']): ?>
     <p><a href="edit_profile.php">Edit Profile</a></p>
-    <?php endif; ?>
     
     <p><a href="welcome.php">Go Back</a></p>
 </body>

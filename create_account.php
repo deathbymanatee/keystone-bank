@@ -1,12 +1,7 @@
 <?php
-session_start();
 
-// Check if user is logged in
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
-
+// Authentication check
+require_once('auth_check.php');
 // Include database connection
 require_once('db_connection.php');
 

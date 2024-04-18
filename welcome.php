@@ -3,14 +3,9 @@
 <head>
     <title>Welcome</title>
 </head>
+<body>
     <?php
-    session_start();
-
-    // Check if user is logged in
-    if (!isset($_SESSION['user_id'])) {
-        header("Location: login.php");
-        exit();
-    }
+    require_once('auth_check.php'); // Include authentication check
 
     // Include database connection
     require_once('db_connection.php');
@@ -19,9 +14,9 @@
     require_once('navbar.php');
     ?>
 
-<body>
-	<h1>Welcome</h1>
-	<?php
+    <h1>Welcome</h1>
+
+    <?php
     // Function to get user account type
     function getUserType($conn, $userId) {
         $query = "SELECT is_admin FROM UserInformation WHERE unique_user_ID = ?";

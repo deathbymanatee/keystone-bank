@@ -2,7 +2,7 @@
 <?php
 session_start();
 
-if(isset($_POST['logout'])) {
+if (isset($_POST['logout'])) {
     // Unset all of the session variables
     $_SESSION = array();
     
