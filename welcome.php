@@ -73,8 +73,7 @@
         // Display admin-specific content
         echo '<h2>Admin Dashboard</h2>';
         // Display admin actions/buttons
-        echo '<button onclick="window.location.href=\'edit_user.php\'">Edit User Information</button>';
-        echo '<button onclick="window.location.href=\'delete_user.php\'">Delete User</button>';
+        echo '<button onclick="window.location.href=\'user_list.php\'">List Of All Users</button>';
     }
     ?>
 </body>
