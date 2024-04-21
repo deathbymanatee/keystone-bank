@@ -74,6 +74,7 @@
         echo '<h2>Admin Dashboard</h2>';
         // Display admin actions/buttons
         echo '<button onclick="window.location.href=\'user_list.php\'">List Of All Users</button>';
+        echo '<button onclick="window.location.href=\'user_transaction_list.php\'">List Of User Transactions</button>';
     }
     ?>
 </body>
