@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $checkEmail->close();
             // Insert the new user
-            $sql = "INSERT INTO UserInformation (unique_user_ID, email, first_name, last_name, SSN, password, is_admin) VALUES (UUID(), ?, ?, ?, ?, ?, 0)";
+            $sql = "INSERT INTO UserInformation (unique_user_ID, email, first_name, last_name, SSN, password, is_admin) VALUES (UUID(), ?, ?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
             $stmt->bind_param("sssssi", $email, $firstName, $lastName, $ssn, $hashedPassword, $is_admin);
