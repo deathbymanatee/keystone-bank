@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $stmt->execute();
 
                 // Insert into UserTransactionTable
-                $insert_transaction_query = "INSERT INTO UserTransactionTable (send_acctID, receive_acctID, amount_transferred, transaction_date) VALUES (?, ?, ?, CURDATE())";
+                $insert_transaction_query = "INSERT INTO UserTransactionTable (transaction_ID, send_acctID, receive_acctID, amount_transferred, transaction_date) VALUES (UUID(), ?, ?, ?, CURDATE())";
                 $stmt = $conn->prepare($insert_transaction_query);
                 $stmt->bind_param("sss", $sender_account, $receiver_account, $amount);
                 $stmt->execute();

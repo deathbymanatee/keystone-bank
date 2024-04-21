@@ -21,6 +21,7 @@ CREATE TABLE CheckingSavingsAccount (
 );
 
 CREATE TABLE UserTransactionTable (
+    transaction_ID CHAR(36) PRIMARY KEY, 
     send_acctID CHAR(36),
     receive_acctID CHAR(36),
     amount_transferred DECIMAL(10, 2),
