@@ -3,6 +3,8 @@ session_start();
 
 require_once('db_connection.php');
 
+require_once('admin_check.php');
+
 // Delete a user if delete button is clicked
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_user_id'])) {
     $deleteUserId = $_POST['delete_user_id'];

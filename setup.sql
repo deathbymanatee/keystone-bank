@@ -25,6 +25,8 @@ CREATE TABLE UserTransactionTable (
     receive_acctID CHAR(36),
     amount_transferred DECIMAL(10, 2),
     transaction_date DATE DEFAULT CURDATE(),
-    FOREIGN KEY (send_acctID) REFERENCES CheckingSavingsAccount(acct_ID),
+    FOREIGN KEY (send_acctID) REFERENCES CheckingSavingsAccount(acct_ID)
+        ON DELETE CASCADE,
     FOREIGN KEY (receive_acctID) REFERENCES CheckingSavingsAccount(acct_ID)
+        ON DELETE CASCADE
 );
