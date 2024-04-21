@@ -12,8 +12,6 @@ administrative privileges to modify this directory.
 
 Here's the Google Drive folder with associated project documents: <https://drive.google.com/drive/folders/1xVr1QDkeqZqUSmWPWx2Dv1biAwcEAJ69> 
 
-I will ask about how the file structure should look and make the appropriate changes. For now, don't make any crazy changes just yet (main is protected anyway)
-
 ## Database Setup
 
 1. Copy setup.sql into the directory where your mySQL binary lives. Open the XAMPP shell. 
